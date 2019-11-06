@@ -15,6 +15,12 @@ class CreateTripsTable extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string("city");
+            
+            // Dates must be entered in the following format (WITH QUOTATIONS): "YYYY-MM-DD"
+            $table->date("tripStartDate");
+            $table->boolean("tripEnded") -> default(false);
+            $table->float("tripPrice");
             $table->timestamps();
         });
     }
