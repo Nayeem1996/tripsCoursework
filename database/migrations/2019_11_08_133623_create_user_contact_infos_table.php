@@ -15,6 +15,9 @@ class CreateUserContactInfosTable extends Migration
     {
         Schema::create('user_contact_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer("phone_Number");
+            $table->integer("emergency_Contact_Number");
+            $table->string("address");
             $table->timestamps();
         });
     }
