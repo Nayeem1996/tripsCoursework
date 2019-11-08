@@ -19,9 +19,9 @@ class CreateTripsTable extends Migration
             $table->string("city");
             
             // Dates must be entered in the following format (WITH QUOTATIONS): "YYYY-MM-DD"
-            $table->date("tripStartDate");
-            $table->boolean("tripEnded") -> default(false);
-            $table->float("tripPrice");
+            $table->date("trip_start_date");
+            $table->boolean("trip_ended") -> default(false);
+            $table->float("trip_price");
             $table->timestamps();
         });
     }
