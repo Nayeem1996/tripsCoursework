@@ -8,6 +8,10 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public function userContactInfo()
+    {
+        return $this->hasOne('App\UserContactInfo');
+    }
     use Notifiable;
 
     /**
