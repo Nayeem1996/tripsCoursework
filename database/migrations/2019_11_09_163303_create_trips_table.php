@@ -17,6 +17,7 @@ class CreateTripsTable extends Migration
             $table->bigIncrements('id');
             $table->string("trip_title");
             $table->string("city");
+            $table->string("trip_detail");
             
             // Dates must be entered in the following format (WITH QUOTATIONS): "YYYY-MM-DD"
             $table->date("trip_start_date");

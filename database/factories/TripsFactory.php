@@ -2,19 +2,16 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Trips;
+use App\Trip;
 use Faker\Generator as Faker;
 
-$factory->define(Trips::class, function (Faker $faker) {
+$factory->define(Trip::class, function (Faker $faker) {
     return [
-        'trip_title' => $faker->lexify("Trip thrrough ??????"),
-        'city' => $faker->city(),
-        'tripStartDate' => $faker->date(),
-        'tripEnded' => $faker->boolean($chanceOfGettingTrue = 50),
-        'tripPrice' => $faker->numberBetween(0, 1000),
-        
-        
-        //To use a defined list of types:
-           //'type' =>$faker-> randomElement(['Type1', 'type2', 'type3']);
+        'trip_title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+        'city' => $faker->city,
+        'trip_detail' => $faker->realText($maxNbChars = 200, $indexSize = 2),
+        'trip_start_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'trip_ended' => $faker->boolean($chanceOfGettingTrue = 50),
+        'trip_price' => $faker->numberBetween(0, 5000),
     ];
 });

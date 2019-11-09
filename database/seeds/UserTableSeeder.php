@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Trips;
+use App\User;
 
-class TripsTableSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,6 @@ class TripsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        factory(App\Trips::class, 50)->create();
+        factory(App\User::class, 100)->create();
     }
 }
