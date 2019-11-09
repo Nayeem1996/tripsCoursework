@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            //$table->unasignedInteger('contact_info_id') Do this after creating contact info correctly
         });
     }
 
