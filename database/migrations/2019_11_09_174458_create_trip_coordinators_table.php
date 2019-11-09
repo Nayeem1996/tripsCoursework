@@ -15,6 +15,12 @@ class CreateTripCoordinatorsTable extends Migration
     {
         Schema::create('trip_coordinators', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->date('employment_start_date');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

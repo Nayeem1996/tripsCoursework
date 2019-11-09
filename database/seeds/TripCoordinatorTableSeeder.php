@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\TripCoordinator;
 
 class TripCoordinatorTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class TripCoordinatorTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\TripCoordinator::class, 100)->create();
     }
 }
