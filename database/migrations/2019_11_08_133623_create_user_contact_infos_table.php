@@ -14,7 +14,7 @@ class createUserContactInfosTable extends Migration
     public function up()
     {
         Schema::create('user_contact_infos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unique();
             $table->unsignedBigInteger('user_id');       // Foreign key for one-to-one relationship with User
             $table->bigInteger("phone_number");
             $table->bigInteger("emergency_contact_number");

@@ -8,10 +8,6 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    public function userContactInfo()
-    {
-        return $this->hasOne('App\UserContactInfo');
-    }
     use Notifiable;
 
     /**
@@ -40,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function userContactInfo()
+    {
+        return $this->hasOne('App\UserContactInfo');
+    }
+
 }
