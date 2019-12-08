@@ -16,5 +16,11 @@ class DatabaseSeeder extends Seeder
         $this->call(UserContactInfoTableSeeder::class);
         $this->call(TripCoordinatorTableSeeder::class);
         $this->call(TripTableSeeder::class);
+
+        foreach (App\Trip::all() as $trip){
+            foreach(App\User::all() as $user){
+                $trip->users()->attach($user->id);
+            }
+        }
     }
 }
