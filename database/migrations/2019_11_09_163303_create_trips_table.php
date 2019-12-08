@@ -24,8 +24,14 @@ class CreateTripsTable extends Migration
             $table->boolean("trip_ended") -> default(false);
             $table->float("trip_price");
             $table->timestamps();
+
+            $table->bigInteger("trip_coordinator_id")->unsigned();
+
+            $table->foreign("trip_coordinator_id")->references("id")->on("trip_coordinators")
+                ->onUpdate("cascade");
         });
     }
+    
 
     /**
      * Reverse the migrations.

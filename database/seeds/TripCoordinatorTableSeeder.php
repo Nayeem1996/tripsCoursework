@@ -12,6 +12,6 @@ class TripCoordinatorTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\TripCoordinator::class, 100)->create();
+        factory(App\TripCoordinator::class, 5)->create();
     }
 }

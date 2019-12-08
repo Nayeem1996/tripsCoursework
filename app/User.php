@@ -37,9 +37,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function userContactInfo()
+    // One-to-many
+    public function userContactInfos()
     {
         return $this->hasOne('App\UserContactInfo');
     }
 
+    // Many-to-many
+    public function trips()
+    {
+        return $this->belongsToMany('App\Trip');
+    }
 }
