@@ -20,8 +20,7 @@ class CreateTripUserTable extends Migration
             $table->timestamps();
 
             $table->foreign('trip_id')->references('id')->on('trips')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('cascade')->onUpdate('cascade');
             
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
