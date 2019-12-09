@@ -20,7 +20,6 @@ class createUserContactInfosTable extends Migration
             $table->bigInteger("emergency_contact_number");
             $table->string("address");
             $table->timestamps();
-
         });
 
         // Referential integrity constraint
