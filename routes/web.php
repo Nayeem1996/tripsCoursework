@@ -21,5 +21,9 @@ Route::get('/home', function(){
 
 // Trips
 Route::get('trips', 'TripController@index');    // All trips
+Route::get('trips/{id}', 'TripController@show')->name('trips.show');    // Specific trips
 
-Route::get('trips/{id}', 'TripController@show');    // Specific trips
+// Users
+// TODO: Make it so that only trip coordinators can see the user accounts
+Route::get('users', 'UserController@index');    // All users
+Route::get('users/{id}', 'UserController@show')->name('users.show');    // Specific users

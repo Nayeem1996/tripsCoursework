@@ -13,18 +13,3 @@
         <li>Trip Coordinator: {{ $trip->tripCoordinator->name }} </li>
     </ul>
 @endsection
-
-                
-{{--                 $table->bigIncrements('id');
-                $table->string("trip_title");
-                $table->string("city");
-                $table->string("trip_detail");
-                
-                // Dates must be entered in the following format (WITH QUOTATIONS): "YYYY-MM-DD"
-                $table->date("trip_start_date");
-                $table->boolean("trip_ended") -> default(false);
-                $table->float("trip_price");
-                $table->timestamps(); 
-                
-                $table->bigInteger("trip_coordinator_id")->unsigned();
-                --}}
