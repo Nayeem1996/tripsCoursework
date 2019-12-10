@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Trip extends Model
 {
     // One-to-many relation
-    public function tripCoordinators()
+    public function tripCoordinator()
     {
         return $this->belongsTo('App\TripCoordinator');
     }

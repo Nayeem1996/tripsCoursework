@@ -14,9 +14,13 @@ class TripController extends Controller
     public function index()
     {
         $trips = Trip::all();
-
-        return view('trips.index', ['trips' => $trips]);
         
+        // Check if there are any trips available currently
+        if (empty($trips)){
+            return view('trips.index', ["No trips available at this time"]);     
+        }if (!empty($trips)){
+            return view('trips.index', ['trips' => $trips]);
+        }
     }
 
     /**
@@ -48,7 +52,9 @@ class TripController extends Controller
      */
     public function show($id)
     {
-        //
+        $trip = Trip::findOrFail($id);
+
+        return view ('trips.show', ['trip' =>$trip]);
     }
 
     /**

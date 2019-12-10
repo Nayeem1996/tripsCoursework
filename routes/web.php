@@ -19,4 +19,7 @@ Route::get('/home', function(){
     return view('home');
 });
 
-Route::get('trips', 'TripController@index');
+// Trips
+Route::get('trips', 'TripController@index');    // All trips
+
+Route::get('trips/{id}', 'TripController@show');    // Specific trips
