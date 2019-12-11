@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(35);
         
         // Check if there are any users created
         if (empty($users)){
@@ -41,7 +41,33 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*
+        $validatedData = $request->validate([
+            'trip_title' => 'required|max:800',
+            'city' => 'required',
+            'trip_detail' => 'required|max:5000',
+            'trip_start_date' => 'required|date',
+            'trip_price' => 'nullable|numeric',
+            'trip_coordinator_id' => 'required|integer',
+        ]);
+
+        $u = new User;
+
+        $u->trip_title = $validatedData['trip_title'];
+        $u->city = $validatedData['city'];
+        $u->trip_detail = $validatedData['trip_detail'];
+        $u->trip_start_date = $validatedData['trip_start_date'];
+        $u->trip_price = $validatedData['trip_price'];
+        $u->trip_coordinator_id = $validatedData['trip_coordinator_id'];
+        
+        $u->save();
+
+        session()->flash('message', 'New user created.');
+
+        return redirect('trips');
+
+        LOOK INTO THIS MAN
+        */
     }
 
     /**

@@ -12,7 +12,7 @@ class TripTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Trip::class, 20)->create();
+        factory(App\Trip::class, 100)->create();
 
 
 
