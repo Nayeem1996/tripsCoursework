@@ -28,7 +28,5 @@ Route::get('trips/{id}', 'TripController@show')->name('trips.show');    // Speci
 
 // Users
 // TODO: Make it so that only trip coordinators can see the user accounts
-Route::get('users', 'UserController@index')->name('users.index');    // All users
-Route::get('users/create', 'UserController@create')->name('users.create');    // Creating users
-Route::post('users', 'UserController@store')->name('users.store');    // Storing users
-Route::get('users/{id}', 'UserController@show')->name('users.show');    // Specific users (This must be last as {id} will be captured by users/create otherwise)
+Route::get('users', 'UserController@index');    // All users
+Route::get('users/{id}', 'UserController@show')->name('users.show');    // Specific users
