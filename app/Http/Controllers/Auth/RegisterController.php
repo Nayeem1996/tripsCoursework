@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\TripCoordinator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -38,6 +40,43 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:coordinator');
+        $this->middleware('guest:user');
+    }
+
+    // The methods to return the registration pages for the different users
+    public function showCoordinatorRegisterForm()
+    {
+        return view('auth.register', ['url' => 'coordinator']);
+    }
+
+    public function showUserRegisterForm()
+    {
+        return view('auth.register', ['url' => 'user']);
+    }
+
+    // Methods for creating coordinator
+    protected function createCoordinator(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $coordinator = TripCoordinator::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/coordinator');
+    }
+
+    // Methods for creating user
+    protected function createUser(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/user');
     }
 
     /**
