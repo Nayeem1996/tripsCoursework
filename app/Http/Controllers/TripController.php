@@ -13,7 +13,7 @@ class TripController extends Controller
      */
     public function index()
     {
-        $trips = Trip::all();
+        $trips = Trip::paginate(35);
         
         // Check if there are any trips available currently
         if (empty($trips)){
@@ -30,7 +30,7 @@ class TripController extends Controller
      */
     public function create()
     {
-        //
+        return view('trips.create');
     }
 
     /**
@@ -41,7 +41,29 @@ class TripController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'trip_title' => 'required|max:800',
+            'city' => 'required',
+            'trip_detail' => 'required|max:5000',
+            'trip_start_date' => 'required|date',
+            'trip_price' => 'nullable|numeric',
+            'trip_coordinator_id' => 'required|integer',
+        ]);
+
+        $t = new Trip;
+
+        $t->trip_title = $validatedData['trip_title'];
+        $t->city = $validatedData['city'];
+        $t->trip_detail = $validatedData['trip_detail'];
+        $t->trip_start_date = $validatedData['trip_start_date'];
+        $t->trip_price = $validatedData['trip_price'];
+        $t->trip_coordinator_id = $validatedData['trip_coordinator_id'];
+        
+        $t->save();
+
+        session()->flash('message', 'New trip created.');
+
+        return redirect('home');
     }
 
     /**
