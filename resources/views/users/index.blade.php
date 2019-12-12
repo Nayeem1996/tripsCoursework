@@ -11,10 +11,5 @@
             {{-- <li>{{ $user->name}}</li> --}}
 
         @endforeach
-
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center"></div>
-                {{ $users->links() }}
-        </div>
     </ul>
 @endsection

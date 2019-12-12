@@ -8,6 +8,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
+                    Trip Coordinator
                 </div>
             </div>
         </div>
