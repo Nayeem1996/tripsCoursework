@@ -36,3 +36,7 @@ Route::get('tripcoordinators', 'TripCoordinatorController@index')->name('tripcoo
 Route::get('tripcoordinators/create', 'TripCoordinatorController@create')->name('tripcoordinators.create');    // Creating tripcoordinators
 Route::post('tripcoordinators', 'TripCoordinatorController@store')->name('tripcoordinators.store');    // Storing trips
 Route::get('tripcoordinators/{id}', 'TripCoordinatorController@show')->name('tripcoordinators.show'); // Specific trip coordinators
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
