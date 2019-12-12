@@ -3,7 +3,7 @@
 @section('title', 'Trip Coordinators')
 
 @section('content')
-    <p>Trips available: </p>
+    <p>Trip coordinators: </p>
     <ul>
         @foreach ($tripCoordinators as $tripcoordinator)
 
