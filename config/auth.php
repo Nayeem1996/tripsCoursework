@@ -46,6 +46,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'coordinator' => [
+            'driver' => 'session',
+            'provider' => 'coordinators',
+        ],
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
     ],
 
     /*
@@ -66,15 +74,15 @@ return [
     */
 
     'providers' => [
+        'coordinators' => [
+            'driver' => 'eloquent',
+            'model' => App\TripCoordinator::class,
+        ],
+
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
@@ -95,6 +103,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'coordinators' => [
+            'provider' => 'coordinators',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
