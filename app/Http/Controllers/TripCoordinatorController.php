@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\TripCoordinator;
 use Illuminate\Http\Request;
 
 class TripCoordinatorController extends Controller
@@ -13,7 +13,14 @@ class TripCoordinatorController extends Controller
      */
     public function index()
     {
-        //
+        $tripCoordinators = TripCoordinator::paginate(30);
+        
+        // Check if there are any users created
+        if (empty($tripCoordinators)){
+            return view('tripCoordinators.index', ["No trip coordinators are created yet"]);     
+        }if (!empty($tripCoordinators)){
+            return view('tripCoordinators.index', ['tripCoordinators' => $tripCoordinators]);
+        }
     }
 
     /**
@@ -45,7 +52,9 @@ class TripCoordinatorController extends Controller
      */
     public function show($id)
     {
-        //
+        $tripcoordinator = TripCoordinator::findOrFail($id);
+
+        return view ('tripcoordinators.show', ['tripcoordinator' =>$tripcoordinator]);
     }
 
     /**
