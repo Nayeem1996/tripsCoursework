@@ -12,4 +12,9 @@
 
         @endforeach
     </ul>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center pt-4">
+            {{ $trips->links() }}
+        </div>
+    </div>
 @endsection

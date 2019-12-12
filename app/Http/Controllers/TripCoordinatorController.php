@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Trip;
+
 use Illuminate\Http\Request;
 
-class TripController extends Controller
+class TripCoordinatorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,14 +13,7 @@ class TripController extends Controller
      */
     public function index()
     {
-        $trips = Trip::paginate(30);
-        
-        // Check if there are any trips available currently
-        if (empty($trips)){
-            return view('trips.index', ["No trips available at this time"]);     
-        }if (!empty($trips)){
-            return view('trips.index', ['trips' => $trips]);
-        }
+        //
     }
 
     /**
@@ -52,9 +45,7 @@ class TripController extends Controller
      */
     public function show($id)
     {
-        $trip = Trip::findOrFail($id);
-
-        return view ('trips.show', ['trip' =>$trip]);
+        //
     }
 
     /**
