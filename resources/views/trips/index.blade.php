@@ -17,4 +17,8 @@
             {{ $trips->links() }}
         </div>
     </div>
+
+    <div>
+        <a href="{{ route('trips.create' )}}">Create trips</a>
+    </div>
 @endsection

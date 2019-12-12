@@ -31,5 +31,8 @@ Route::get('trips/{id}', 'TripController@show')->name('trips.show');    // Speci
 Route::get('users', 'UserController@index')->name('users.index');    // All users
 Route::get('users/{id}', 'UserController@show')->name('users.show');    // Specific users
 
-Route::get('tripcoordinators', 'TripCoordinatorController@index')->name('tripcoordinators.index');
-Route::get('tripcoordinators/{id}', 'TripCoordinatorController@show')->name('tripcoordinators.show');
+// TripCoordinators
+Route::get('tripcoordinators', 'TripCoordinatorController@index')->name('tripcoordinators.index'); // All trip coordinators
+Route::get('tripcoordinators/create', 'TripCoordinatorController@create')->name('tripcoordinators.create');    // Creating tripcoordinators
+Route::post('tripcoordinators', 'TripCoordinatorController@store')->name('tripcoordinators.store');    // Storing trips
+Route::get('tripcoordinators/{id}', 'TripCoordinatorController@show')->name('tripcoordinators.show'); // Specific trip coordinators
