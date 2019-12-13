@@ -19,6 +19,7 @@ class CreateTripCoordinatorsTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->date('employment_start_date');
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
