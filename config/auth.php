@@ -81,7 +81,7 @@ return [
         ],
         'tripCoordinators' => [
             'driver' => 'eloquent',
-            'model' => App\TripCoordinators::class,
+            'model' => App\TripCoordinator::class,
         ],
 
         // 'users' => [

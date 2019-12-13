@@ -17,6 +17,9 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        if ($guard == "tripCoordinator" && Auth::guard($guard)->check()) {
+            return route('tripcoordinators.dashboard');
+        }
         if (Auth::guard($guard)->check()) {
             return redirect('/home');
         }
